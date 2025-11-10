@@ -16,25 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
             // 4. Cette partie s'exécute quand les données sont arrivées
             console.log('Données reçues :', data);
 
-
             // 5. MISE À JOUR DU SERVEUR (SRV-01)
-            // On "attrape" la cible HTML (Voir explications sur le DOM)
-            // Note : 'statut-serveur-principal' doit correspondre à l'id du HTML
             const serveurElement = document.getElementById('statut-serveur-principal');
-           
-            // On met à jour son contenu avec la donnée du JSON
-            // Note : data.srv01 correspond à la clé dans data.json
             serveurElement.textContent = data.srv01;
 
+            // --- Couleur selon le statut ---
+            if (data.srv01 === 'En Ligne') {
+                serveurElement.style.color = 'green';
+            } else {
+                serveurElement.style.color = 'red';
+            }
 
             // 6. MISE À JOUR DE LA CAMÉRA (CAM-01)
-            // On "attrape" l'autre cible
-            // Note : 'statut-camera-1' doit correspondre à l'id du HTML
             const cameraElement = document.getElementById('statut-camera-1');
-           
-            // On met à jour son contenu
-            // Note : data.cam01 correspond à la clé dans data.json
             cameraElement.textContent = data.cam01;
+
+            // --- Couleur selon le statut ---
+            if (data.cam01 === 'Allumée') {
+                cameraElement.style.color = 'green';
+            } else {
+                cameraElement.style.color = 'red';
+            }
+
+
+            // 7. MISE À JOUR DU PARE-FEU (FW-01)
+            const firewallElement = document.getElementById('statut-pare-feu');
+            firewallElement.textContent = data.fw01;
+
+            // --- Couleur selon le statut ---
+            if (data.fw01 === 'En Ligne') {
+                firewallElement.style.color = 'green';
+            } else {
+                firewallElement.style.color = 'red';
+            }
         });
 
 
