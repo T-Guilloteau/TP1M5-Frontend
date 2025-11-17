@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 2. On lance la requête (asynchrone) pour lire le fichier data.json
-    fetch('./data.json')
+    fetch('http://127.0.0.1:8000/api/status')
         .then(response => response.json()) // 3. On convertit la réponse en objet JSON
         .then(data => {
             // 4. Cette partie s'exécute quand les données sont arrivées
@@ -50,6 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 firewallElement.style.color = 'red';
             }
         });
+    
+
+        // --- BOUTON DE BASCULE JOUR / NUIT ---
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    // Si l'utilisateur a déjà choisi un thème, on le charge
+    if (localStorage.getItem('theme') === 'nuit') {
+        body.classList.add('nuit');
+        toggleBtn.textContent = '☀️ Mode Jour';
+    }
+
+    // Quand on clique sur le bouton
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('nuit');
+
+        if (body.classList.contains('nuit')) {
+            toggleBtn.textContent = '☀️ Mode Jour';
+            localStorage.setItem('theme', 'nuit');
+        } else {
+            toggleBtn.textContent = '🌙 Mode Nuit';
+            localStorage.setItem('theme', 'jour');
+        }
+    });
 
 
     // Ce message s'affichera AVANT "Données reçues"

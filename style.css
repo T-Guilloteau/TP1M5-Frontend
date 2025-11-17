@@ -1,25 +1,72 @@
 /* style.css */
+
+/* === Variables globales === */
+:root {
+    --fond: #F5F5F5;
+    --texte: #1E1E1E;
+    --carte: #FFFFFF;
+    --bordure: #CCC;
+    --accent: #9400D3;
+    --statut-orange: #FF8C00;
+}
+
+/* === Mode nuit === */
+body.nuit {
+    --fond: #121212;
+    --texte: #E0E0E0;
+    --carte: #1E1E1E;
+    --bordure: #333;
+    --accent: #9400D3;
+    --statut-orange: #FFA500;
+}
+
+/* === Style commun, basé sur les variables === */
 body {
     font-family: sans-serif;
-    background-color: #121212;
-    color: #E0E0E0;
+    background-color: var(--fond);
+    color: var(--texte);
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 h1, h2 {
-    color: #FFFFFF;
-    border-bottom: 2px solid #9400D3;
+    color: var(--texte);
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 5px;
 }
+
 .card {
-    background-color: #1E1E1E;
-    border: 1px solid #333;
+    background-color: var(--carte);
+    border: 1px solid var(--bordure);
     border-radius: 8px;
     padding: 5px 20px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-#statut-serveur-principal, #statut-camera-1, #statut-pare-feu {
+
+/* Statuts */
+#statut-serveur-principal,
+#statut-camera-1,
+#statut-pare-feu {
     font-size: 1.2em;
     font-weight: bold;
-    color: #FFA500; /* Orange (couleur "En attente") */
+    color: var(--statut-orange);
 }
+
+/* Bouton de bascule */
+#toggle-theme {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-theme:hover {
+    background-color: #7A00B3;
+}
+

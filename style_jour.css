@@ -1,0 +1,32 @@
+/* style-jour.css */
+body {
+    font-family: sans-serif;
+    background-color: #F5F5F5; /* Fond clair */
+    color: #1E1E1E; /* Texte sombre */
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #4B0082; /* Violet foncé */
+    border-bottom: 2px solid #9400D3; /* Même accent que le mode sombre */
+    padding-bottom: 5px;
+}
+
+.card {
+    background-color: #FFFFFF; /* Cartes blanches */
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Statuts : orange par défaut (en attente) */
+#statut-serveur-principal,
+#statut-camera-1,
+#statut-pare-feu {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #FF8C00; /* Orange vif */
+}
